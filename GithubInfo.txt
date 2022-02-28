@@ -1,0 +1,185 @@
+cd .. :to back one dir to behind
+rmdir "dirName" : to remove the directory
+
+  to make a folder :  mkdir  'folder/dir name'  then press enter
+  to open folder : cd folderName/                    => slash to open the folder
+  to clone a github repository :  git clone 'repoLink'
+  to bring all folders & files in the opened folder :dir
+  to add a file for tracking: git add 'fileName'
+  to remove file before commit it : git reset head 'fileName'
+  status : git status
+  to commit : git commit -m" description"
+
+  all thing now, where? its is on my local repo and we must to push it to remote repo
+   
+  get my remote repo : git remote -v 
+  get branches : git branch
+
+  to push allthing to remote repo : git push 'remote repoName' 'remoteBranch'
+  to take the new editors(file..) that the team did it :git pull 'remoteRepoName'
+  
+  configuration list :git config -l
+
+  git config --global 'value= what about i am searching for' example  git config --global user.email
+  set email: git config --global user.email "moemensaadeh3@gmail.com"
+
+ How can i create a public key?
+  what is a public key:
+  A private key that is stored only on your computer. If the keys match, you're granted access.
+  ssh : secure shell
+  keygen:key generator : it generate a key
+ -t type of algorithm that i want to create the key by it
+ rsa (Rivest–Shamir–Adleman):  is a public-key cryptosystem that is widely used for secure data transmission
+ -b : number of bits
+
+ step 1 ssh-keygen -t rsa -b 4096 -C "my email"
+then i must to add a password and confirm it
+
+output:
+Your identification has been saved in /c/Users/moemensaadeh/.ssh/id_rsa
+Your public key has been saved in /c/Users/moemensaadeh/.ssh/id_rsa.pub
+
+
+i want the ssh key that it is the public key content. how?
+step 2  cat ~/.ssh/id_rsa.pub then press enter to see ssh key ,copy and paste it to ssh keys at settings in github 
+
+!! to see if all thing worked correctly
+ssh -T git@github.com
+
+
+
+About alias:
+------------
+how can i edit the config to be more simply 
+git config --global alias.st status   : it will be "git st "
+
+edit anything by code : git config --global --edit
+
+
+create a branch
+--------------
+git branch "name"
+we can chech if the branch created by "git branch"
+after writing git branch , if the branch name color is green ,in this case i am in this branch now
+And if i want change it to another branch ,we can like this 
+git checkout "name of the new branch that i want switch to it"
+
+delete a branch
+-------------
+git branch -d "name of branch that i want to delete it"
+
+
+create a branch and switch to it in the same time:
+----------------------------------------------------
+git checkout -b "name of the new branch that i want to create and switch to it "
+
+
+Rename a branch:
+-----------------
+git branch -m "the new name of branch"
+
+merge 2 branch
+------------
+git merge "branch name that i want to branch it with other branch"
+after merging it we can delete the second file
+
+
+
+
+if i want to store files without remove it before commit : git stash
+if i want to call it : git stash pop
+if you we want to see the list of stash : git stash list
+and if we want save it as name : git stash list save "name"
+git stash pop stash@{number of index} : it will call the file by the index
+git stash show stash@{number of index} : it will call file name by index
+
+write something in file isnt exist (create file and add to it) like this:
+echo "what do i want to write in it" > filename.type of file
+
+
+git stash apply: take the last file that i maked it to stashing and if we did " git stash list" it will stay in the list but
+if we did git stash pop it willn't stay in the stash list
+
+git stash drop : it will delete the last file 
+git stash drop stash@{number of index} : it will delete the file by the index
+
+
+git stash clear : it will delete all stash files
+
+
+restore:
+git restore --staged "fileName"
+
+
+
+git clean :  git clean -n
+that if we want to remove all untracked files :git clean -f
+--------------------------------------------
+
+if we want to leave some file without removing it :
+git clean -n
+git add "file that i don't want to delete it"
+git clean -n
+git clean -f
+
+
+
+
+if i want to delete a created commmit and if this commit is the head how?
+fisrt how can i know which commit is the head?
+by this command : git log 
+
+all commit has a hash like this:
+
+commit 34rr4f1rsad9d72137156ce55Dc63d2b22b766u(HEAD -> main)
+Author: Moemen <moemensaadeh3@gmail.com>
+Date:   Sun Feb 17 10:02:33 2012 +0300
+
+    main.php
+
+    And if we want to delete this commit:
+    git reset --hard "hash code for the commit that i want to make it in head"
+then git push 'remote repoName' 'remoteBranch' --force
+
+-----------------------------------
+ls -a : to show the files and folder
+
+
+
+if i want to ignore files and directories through the extension of file :
+code .git ignore ,then wait a few seconds , the editor(visual studio) will open then write this 
+*.txt : all txt documents willn't appear if we did git status
+
+!if we have a file from all file with txt extension and we want it ,we must write in editor:
+!fileName.txt   : fileName that i dont want to ignore it 
+
+
+
+asking about tag:
+---------------
+git tag
+
+create a tag:
+-------------
+git tag "tag name"   
+github advice programmers to give the tag names like this " V1.0"
+
+then we must push it to remote repo:
+git push origin main "file name" -m "description"
+
+
+
+how can i do a list for my tag
+git tag -l "v1.*"
+
+
+
+to delete the release or the tag "from github settings"
+
+and if i want to delete it by command line from local repo (locally)
+git tag -d "tag name"
+
+
+and if i want to delete it by command line from remote repo but it will stay in local repo (remotly)
+git push origin --delete "fileName"
+
