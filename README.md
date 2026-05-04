@@ -1,5 +1,12 @@
 ## Common Git "Undo" & Edit Scenarios
 
+### Table of Contents
+- [Situation 1: Undo Commit & Staging](#situation-1-undo-commit--staging-everything-back-to-untracked)
+- [Situation 2: Undo Commit, Keep Changes Staged](#situation-2-undo-commit-keep-changes-staged-edit-before-recommitting)
+- [Situation 3: Edit a Pushed Commit Without Creating a New One](#situation-3-edit-a-pushed-commit-without-creating-a-new-one)
+- [Situation 4: Delete a Branch](#situation-4-delete-a-branch)
+- [Situation 5: View Branches](#situation-5-view-branches)
+
 ---
 
 ### **Situation 1: Undo Commit & Staging (everything back to untracked)**
@@ -73,7 +80,7 @@ git push origin --delete branch-name
 
 ---
 
-### **View Branches**
+### **Situation 5: View Branches**
 
 > Check what branches exist in your local repository and remote.
 
