@@ -1,4 +1,4 @@
-## Common Git “Undo” & Edit Scenarios
+## Common Git "Undo" & Edit Scenarios
 
 ---
 
@@ -15,7 +15,7 @@ git reset HEAD~1
 
 ### **Situation 2: Undo Commit, Keep Changes Staged (edit before recommitting)**
 
-> You committed and staged changes (not pushed), but want to modify what’s staged (add/remove/unstage files) before recommitting.
+> You committed and staged changes (not pushed), but want to modify what's staged (add/remove/unstage files) before recommitting.
 
 ```bash
 git reset --soft HEAD~1
@@ -51,5 +51,42 @@ git reset --soft HEAD~1
     ```
 
 *Note: Amending pushed commits rewrites history and should be used with care when collaborating with others.*
+
+---
+
+### **Situation 4: Delete a Branch**
+
+> You want to remove a branch that you no longer need, either locally or from the remote repository.
+
+#### Delete Branch Locally:
+```bash
+git branch -D branch-name
+```
+- This deletes the branch from your local repository.
+- Use `-D` to force delete if the branch hasn't been fully merged.
+
+#### Delete Branch from Remote (GitHub):
+```bash
+git push origin --delete branch-name
+```
+- This removes the branch from the remote repository on GitHub.
+
+---
+
+### **View Branches**
+
+> Check what branches exist in your local repository and remote.
+
+#### Local Branches:
+```bash
+git branch
+```
+- Lists all branches in your local repository.
+
+#### Remote Branches:
+```bash
+git branch -r
+```
+- Lists all branches on the remote repository.
 
 ---
