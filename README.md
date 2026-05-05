@@ -6,6 +6,7 @@
 - [Situation 3: Edit a Pushed Commit Without Creating a New One](#situation-3-edit-a-pushed-commit-without-creating-a-new-one)
 - [Situation 4: Delete a Branch](#situation-4-delete-a-branch)
 - [Situation 5: View Branches](#situation-5-view-branches)
+- [Situation 6: Stash Changes](#situation-6-stash-changes)
 
 ---
 
@@ -95,5 +96,53 @@ git branch
 git branch -r
 ```
 - Lists all branches on the remote repository.
+
+---
+
+### **Situation 6: Stash Changes**
+
+> Stashing is useful when you need to switch branches or clear your workspace, but your work is too messy to stage and not ready for a permanent save.
+
+#### Save Changes to Stash:
+```bash
+git stash save "message describing your changes"
+```
+- Saves your unstaged and staged changes with a descriptive message to a temporary area.
+
+#### Save Changes Including Untracked Files:
+```bash
+git stash -u
+```
+- Stashes all changes including untracked files (brand new files not yet recognized by Git).
+
+#### View All Stashes:
+```bash
+git stash list
+```
+- Shows all saved stashes with their IDs and messages.
+
+#### Apply Stash (Keep it):
+```bash
+git stash apply
+```
+- Restores the most recent changes back to your workspace but keeps the copy in the stash list.
+
+#### Apply and Remove Stash (Pop):
+```bash
+git stash pop
+```
+- Restores the changes and automatically deletes them from the stash list (if there are no conflicts).
+
+#### Delete a Specific Stash:
+```bash
+git stash drop stash@{0}
+```
+- Deletes a specific stash by its ID (replace 0 with the stash number).
+
+#### Delete All Stashes:
+```bash
+git stash clear
+```
+- Removes all saved stashes permanently, clearing your "pantry" entirely.
 
 ---
